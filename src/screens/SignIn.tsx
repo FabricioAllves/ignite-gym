@@ -27,7 +27,7 @@ export function SignIn() {
           position='absolute'
         />
 
-        <Center my={24}>
+        <Center my={20}>
           <LogoSvg />
 
           <Text color="gray.100" fontSize="sm">

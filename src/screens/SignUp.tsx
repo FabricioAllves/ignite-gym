@@ -27,7 +27,7 @@ export function SignUp() {
           position='absolute'
         />
 
-        <Center my={24}>
+        <Center my={20}>
           <LogoSvg />
 
           <Text color="gray.100" fontSize="sm">
@@ -60,7 +60,7 @@ export function SignUp() {
         <Button
           title='Voltar para o login'
           variant='outline'
-          mt={24}
+          mt={23}
           onPress={handleGoBack}
         />
 
