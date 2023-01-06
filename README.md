@@ -7,7 +7,7 @@
 
 <h1 align="center">Em desenvolvimento🧑‍💻⚙️</h1>
 
-<img alt="gif-cell" src="https://github.com/fabricio-26/Ignite_Teams/blob/main/src/assets/ReviewReadme.png">
+<img alt="gif-cell" src="https://github.com/fabricio-26/Ignite_Teams/blob/main/src/assets/ReadmeLogo.png">
 
 
 ## 💻 Projeto
