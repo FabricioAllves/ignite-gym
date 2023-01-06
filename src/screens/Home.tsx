@@ -6,6 +6,7 @@ import { HStack, VStack, FlatList, Heading, Text } from 'native-base'
 
 export function Home() {
   const [groups, setGroups] = useState(['costas', 'ombro', 'Bíceps', 'Triceps'])
+  const [exercises, setExercise] = useState(['1', '2', '3', '4'])
   const [groupSelected, setGroupSelected] = useState('costas')
 
   return (
@@ -18,7 +19,7 @@ export function Home() {
         renderItem={({ item }) => (
           <Group
             name={item}
-            isActivity={groupSelected === item}
+            isActivity={groupSelected.toLocaleUpperCase() ===  item.toLocaleUpperCase()}
             onPress={() => setGroupSelected(item)}
           />
         )}
@@ -37,13 +38,22 @@ export function Home() {
           </Heading>
 
           <Text color='gray.200' fontSize='sm'>
-            4
+            {exercises.length}
           </Text>
         </HStack>
 
-        <ExerciseCard />
-        <ExerciseCard />
-        <ExerciseCard />
+
+
+        <FlatList
+          data={exercises}
+          keyExtractor={item => item}
+          renderItem={({ item }) => (
+            <ExerciseCard />
+          )}
+          showsVerticalScrollIndicator={false}
+          _contentContainerStyle={{ paddingBottom: 20 }}
+        />
+
       </VStack>
     </VStack>
   )
