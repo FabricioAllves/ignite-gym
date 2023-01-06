@@ -35,7 +35,7 @@ export function Home() {
             Exercícios
           </Heading>
 
-          <Text color='gray.200' fontSize='sl'>
+          <Text color='gray.200' fontSize='sm'>
             4
           </Text>
         </HStack>
