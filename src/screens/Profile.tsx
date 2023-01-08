@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { Center, ScrollView, VStack, Skeleton, Text, Heading } from 'native-base'
+import * as ImagePicker from 'expo-image-picker'
+import * as FileSystem from 'expo-file-system';
+
 
 import { ScreenHeader } from '@components/ScreenHeader'
 import { UserPhoto } from '@components/UserPhoto'
@@ -12,11 +15,42 @@ const PHOTO_SIZE = 33
 
 export function Profile() {
   const [photoIsLoading, setPhotoIsLoading] = useState(false)
+  const [userPhoto, setUserPhoto] = useState('https://github.com/FabricioAllves.png')
+
+  //ACESSANDO GALERIA
+  async function handleUserPhotoSelector() {
+    setPhotoIsLoading(true)
+    try {
+      const photoSelected = await ImagePicker.launchImageLibraryAsync({
+        // acessando propriedades para editar a foto e outros..
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        quality: 1,
+        aspect: [4, 4],
+        allowsEditing: true
+      })
+
+      if (photoSelected.canceled) {
+        return
+      }
+
+      if(photoSelected.assets[0].uri) {
+        const photoInfo = await FileSystem.getInfoAsync(photoSelected.assets[0].uri)
+
+        setUserPhoto(photoSelected.assets[0].uri)
+      }
+
+      setUserPhoto(photoSelected.assets[0].uri)
+    }catch(error) {
+      console.log(error)
+    }finally{
+      setPhotoIsLoading(false)
+    }
+  }
 
   return (
     <VStack flex={1}>
       <ScreenHeader title='Perfil' />
-      <ScrollView contentContainerStyle={{ paddingBottom: 36}}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 36 }}>
         <Center mt={6} px={10}>
           {photoIsLoading ?
             <Skeleton
@@ -28,13 +62,13 @@ export function Profile() {
             />
             :
             <UserPhoto
-              source={{ uri: 'https://github.com/FabricioAllves.png' }}
+              source={{ uri: userPhoto }}
               alt="Foto do usuario"
               size={PHOTO_SIZE}
             />
           }
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={handleUserPhotoSelector}>
             <Text color='green.500' fontWeight='bold' fontSize='md' mt={2} mb={8}>
               Alterar foto
             </Text>
