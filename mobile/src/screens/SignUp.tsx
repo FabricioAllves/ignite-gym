@@ -47,7 +47,7 @@ export function SignUp() {
       console.log(response.data)
     } catch (error) {
       const isAppError = error instanceof AppError;
-      const title = isAppError ? error.message: 'Não foi possível criar a conta. Tente novamente mais tarde.'
+      const title = isAppError ? error.message : 'Não foi possível criar a conta. Tente novamente mais tarde.'
 
       toast.show({
         title,
@@ -55,7 +55,6 @@ export function SignUp() {
         bgColor: 'red.500'
       })
     }
-
   }
 
   return (
@@ -137,7 +136,6 @@ export function SignUp() {
                 onSubmitEditing={handleSubmit(handleSignUp)}
                 returnKeyType='send'
                 errorMessage={errors.password_confirm?.message}
-
               />
             )}
           />
