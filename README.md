@@ -24,6 +24,8 @@ Aplicativo para listar exercicios a fazer na academia
 - [ ] Axios
 - [ ] Context Api
 - [ ] AsyncStorage
+- [ ] Autenticação JWT
+
 
 
 

@@ -15,7 +15,7 @@ import { AppError } from '@utils/AppError'
 export function Home() {
   const [groups, setGroups] = useState<string[]>([])
   const [exercises, setExercise] = useState(['1', '2', '3', '4'])
-  const [groupSelected, setGroupSelected] = useState('costas')
+  const [groupSelected, setGroupSelected] = useState('antebraço')
 
   const toast = useToast()
   const navigation = useNavigation<AppNavigatorRoutesProps>()
