@@ -15,7 +15,7 @@ type AppRoutes = {
   home: undefined;
   history: undefined;
   profile: undefined;
-  exercise: undefined
+  exercise: { exerciseId: string }
 }
 
 export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutes>
@@ -34,12 +34,12 @@ export function AppRoutes() {
       tabBarActiveTintColor: colors.green[500],
       tabBarInactiveTintColor: colors.gray[200],
       tabBarStyle: {
-          backgroundColor: colors.gray[600],
-          borderTopWidth: 0,
-          height: 60
-          // height: Platform.OS === 'ios' ? 70 : 'auto',
-          // paddingBottom: sizes[10],
-          // paddingTop: sizes[6]
+        backgroundColor: colors.gray[600],
+        borderTopWidth: 0,
+        height: 60
+        // height: Platform.OS === 'ios' ? 70 : 'auto',
+        // paddingBottom: sizes[10],
+        // paddingTop: sizes[6]
       }
     }}>
       <Screen
@@ -47,7 +47,7 @@ export function AppRoutes() {
         component={Home}
         options={{
           tabBarIcon: ({ color }) => (
-            <HomeSvg fill={color} width={iconSize} height={iconSize}/>
+            <HomeSvg fill={color} width={iconSize} height={iconSize} />
           )
         }}
       />
@@ -75,7 +75,7 @@ export function AppRoutes() {
       <Screen
         name='exercise'
         component={Exercise}
-        options={{tabBarButton: () => null}}
+        options={{ tabBarButton: () => null }}
       />
 
     </Navigator>
