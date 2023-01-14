@@ -10,7 +10,7 @@ import { Keyboard } from "react-native";
 
 export type AuthContextDataProps = {
   user: UserDTO;
-  singIn: (email: string, password: string) => Promise<void>;
+  signIn: (email: string, password: string) => Promise<void>;
   isLoadingUserStorageData: boolean;
   signOut: () => Promise<void>
 }
@@ -44,7 +44,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     }
   }
 
-  async function singIn(email: string, password: string) {
+  async function signIn(email: string, password: string) {
     try {
       const { data } = await api.post('/sessions', { email, password });
 
@@ -97,7 +97,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ user, singIn, signOut, isLoadingUserStorageData }}>
+    <AuthContext.Provider value={{ user, signIn, signOut, isLoadingUserStorageData }}>
       {children}
     </AuthContext.Provider>
   )
