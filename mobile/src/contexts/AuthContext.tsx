@@ -10,7 +10,7 @@ import { Keyboard } from "react-native";
 
 export type AuthContextDataProps = {
   user: UserDTO;
-  signIn: (email: string, password: string) => Promise<void>;
+  singIn: (email: string, password: string) => Promise<void>;
   isLoadingUserStorageData: boolean;
   signOut: () => Promise<void>
 }
@@ -25,10 +25,10 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
   const [user, setUser] = useState<UserDTO>({} as UserDTO);
   const [isLoadingUserStorageData, setIsLoadingUserStorageData] = useState(true);
 
-  async function UserAndTokenUpdate(userData: UserDTO, token: string) {
+  async function userAndTokenUpdate(userData: UserDTO, token: string) {
+    api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
-    api.defaults.headers.common['authorization'] = `Bearer ${token}`;
-    setUser(userData)
+    setUser(userData);
   }
 
   async function storageUserAndTokenSave(userData: UserDTO, token: string) {
@@ -39,29 +39,24 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
       await storageAuthTokenSave(token)
     } catch (error) {
       throw error
-    }finally{
+    } finally {
       setIsLoadingUserStorageData(false)
-
     }
   }
 
-  async function signIn(email: string, password: string) {
+  async function singIn(email: string, password: string) {
     try {
-      const { data } = await api.post('/sessions', { email, password })
+      const { data } = await api.post('/sessions', { email, password });
 
       if (data.user && data.token) {
-        setIsLoadingUserStorageData(true)
 
-        await storageUserAndTokenSave(data.user, data.token)
-
-        UserAndTokenUpdate(data.user, data.token)
-
-        Keyboard.dismiss()
+        await storageUserAndTokenSave(data.user, data.token);
+        userAndTokenUpdate(data.user, data.token)
       }
     } catch (error) {
       throw error
     } finally {
-      setIsLoadingUserStorageData(false)
+      setIsLoadingUserStorageData(false);
     }
   }
 
@@ -88,9 +83,8 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
       const token = await storageAuthTokenGet()
 
       if (token && userLogged) {
-        UserAndTokenUpdate(userLogged, token)
+        userAndTokenUpdate(userLogged, token);
       }
-
     } catch (error) {
       throw error
     } finally {
@@ -103,7 +97,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ user, signIn, signOut, isLoadingUserStorageData }}>
+    <AuthContext.Provider value={{ user, singIn, signOut, isLoadingUserStorageData }}>
       {children}
     </AuthContext.Provider>
   )
