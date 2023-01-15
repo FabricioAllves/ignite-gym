@@ -11,8 +11,9 @@ import { Keyboard } from "react-native";
 export type AuthContextDataProps = {
   user: UserDTO;
   signIn: (email: string, password: string) => Promise<void>;
-  isLoadingUserStorageData: boolean;
+  updateUserProfile: (userUpdated: UserDTO) => Promise<void>;
   signOut: () => Promise<void>
+  isLoadingUserStorageData: boolean;
 }
 
 type AuthContextProviderProps = {
@@ -74,6 +75,16 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     }
   }
 
+  async function updateUserProfile(userUpdated: UserDTO){
+    try{
+      setUser(userUpdated)
+      await storageUserSave(userUpdated)
+
+    }catch(error){
+      throw error;
+    }
+  }
+
   //funçao para carregar os dados do usuario / token
   async function loadUserData() {
     try {
@@ -97,7 +108,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ user, signIn, signOut, isLoadingUserStorageData }}>
+    <AuthContext.Provider value={{ user, signIn, signOut, isLoadingUserStorageData, updateUserProfile}}>
       {children}
     </AuthContext.Provider>
   )
