@@ -57,8 +57,27 @@ Pré requisitos para rodar o projeto:
 # Clone o repositório
 $ git clone https://github.com/FabricioAllves/ignite-gym.git
 
-# Entre no repositório
-$ cd ignite-gym
+# Entre no repositório e inicie a api
+$ Com a pasta aberta em "ignite-gym", abra o terminal e rode "cd api" e de enter para entrar na pasta e seguir os passos a baixo para dar inicio a api
+
+# Com NPM
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação
+$ npm start
+
+# Com YARN
+# Instale as dependências
+$ yarn install
+
+# Execute a aplicação
+$ yarn start
+
+# --------------------------------------------------------------------------------------------------
+
+# Rodando o aplicativo
+$ Com a pasta aberta em "ignite-gym", abra o terminal e rode "cd mobile" e de enter para entrar na pasta e segiga os passos a baixo:
 
 # Com NPM
 # Instale as dependências
