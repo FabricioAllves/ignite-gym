@@ -7,8 +7,7 @@
 
 <h1 align="center">Em desenvolvimento🧑‍💻⚙️</h1>
 
-<img alt="gif-cell" src="https://github.com/FabricioAllves/ignite-gym/blob/main/src/assets/ReadmeLogo.png">
-
+<img alt="gif-cell" src="https://github.com/FabricioAllves/ignite-gym/blob/main/mobile/src/assets/ReadmeLogo.png
 
 ## 💻 Projeto
 <!-- OQUE E´? -->
