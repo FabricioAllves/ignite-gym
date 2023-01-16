@@ -11,7 +11,8 @@
 
 ## 💻 Projeto
 <!-- OQUE E´? -->
-Aplicativo para listar exercicios a fazer na academia
+Aplicativo para listar exercicios a fazer na academia, com ele é possivel criar uma conta e se autenticar para fazer uso de todas as funcionalidades nele. Para os leigos e inicantes, neste aplicativos temos alguns exercicios e podemos ver como ele pode ser feito. Basta selecionar qual oque voce quer trabalhar, se ombro, costas, peitoral ou outros, e ao clicar em cima abrira uma nova tela mostrando como e feito o exercicio selecionado, podedndo marcar como concluido e posteriormente visualizar-los no historico suas atividades feitas durante alguma data.
+O intuito do aplicativo é organizar melhor os exercicios feitos e deixa-los registrados como foi a semana.
 
 <!-- QUAIS TECNOLOGIA USEI? -->
 ## ✨ Tecnologias e bibliotecas utilizadas
@@ -24,8 +25,6 @@ Aplicativo para listar exercicios a fazer na academia
 - [ ] Context Api
 - [ ] AsyncStorage
 - [ ] Autenticação JWT
-
-
 
 
 
