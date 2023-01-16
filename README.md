@@ -41,7 +41,7 @@ Aplicativo para listar exercicios a fazer na academia
 ## ♨️ Desafios e aprendizados durante o desenvolvimento
 - Fazer o uso do **Native base** para trazer agilidade no projeto usando os compoentes já prontos e tambem fazer a estilização dos mesmo.
 - Usar o hook useForm do **hookForm** para fazer validações em formularios. Usando essa biblioteca quando se tem varios inputs, conseguimos reduzir o uso  e a necessidade dos states na aplicação além de trabalharmos com mais flexilidade e produtividade para fazer as regras no mesmo. Por exemplo no campo de email com a ajuda da lib yup, fizemos um schema para separar melhor o codigo e fazendo os requires dos inputs, fazendo com que no futuro caso seja preciso fazer uma manutençao, esteja mais facil de trabalhar na nova feature.
-- Usar o **Context Api** para compartilharmos estados, funções de modo global sem precisar ficar repassando de componente para componente.
+- Usar o **Context Api** para compartilharmos os states, funções de modo global sem precisar ficar repassando de componente para componente.
 - Fazer um usuario pesistir informaçoes ao sair do aplicativo usando o **AsyncStorage**.
 - Fazer integração e consumir uma **API Rest** usando o **Axios**
 
